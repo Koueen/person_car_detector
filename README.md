@@ -14,7 +14,7 @@ The model is now served for prediction in port 8080 and registered with the name
 ```
  curl http://127.0.0.1:8080/predictions/fcos_model -T app/images/car_1.jpg
  ```
-Or if you want to check visually how those detection on the image look like, these are the steps to follow:
+Or if you want to check visually how those detections on the image look like, these are the steps to follow:
 ```
 1. poetry install
 2. python scripts/request.py
