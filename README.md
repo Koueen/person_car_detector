@@ -4,7 +4,7 @@
 I selected FCOS (Fully Convolutional One-Stage Object Detection) as my model for object detection, mainly because of the ratio Box MAP and number of parameters that provides (39.2 and 32.3M). This model is already trained on COCO with our objects of interest, which are person and car and their numerical labels 1 and 3 respectively. The class FCOS_ResNet50_FPN_Weights has already the preparation steps to preprocess an image, adapting it for the model input.
 
 #### GUIDE
-In order to run the docker container, launch from root directory the following command:
+The docker image used to serve the model is pytorch/torchserve:latest-cpu. The container is optimized for deploying pytorch models. This method requires a .mar file, which wraps-up the model and the handler function. The handler function contains all specific treatment for the json output. In order to run the docker container, launch from root directory the following command:
 ```
 sh scripts/launch_torchserve.sh
 ```
