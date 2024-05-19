@@ -1,7 +1,9 @@
 import json
-import tyro
+
 import requests
+import tyro
 from PIL import Image, ImageDraw
+
 
 def request_prediction(url: str, img_path: str) -> str:
     with open(img_path, 'rb') as file:
@@ -24,7 +26,7 @@ def draw_bboxes(text_response: str, img_path: str):
     img.save('app/images/output/image_with_bbox.jpg')
 
 
-def main(url: str ="http://localhost:8080/predictions/fcos_model", img_path: str = "app/images/person_car_2.jpg"):
+def main(url: str = "http://localhost:8080/predictions/fcos_model", img_path: str = "app/images/person_car_2.jpg"):
     text_response = request_prediction(url, img_path)
     draw_bboxes(text_response, img_path)
 
