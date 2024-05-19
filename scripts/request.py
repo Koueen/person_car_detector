@@ -3,7 +3,7 @@ import tyro
 import requests
 from PIL import Image, ImageDraw
 
-def request_prediction(url: str, img_path: str):
+def request_prediction(url: str, img_path: str) -> str:
     with open(img_path, 'rb') as file:
         response = requests.post(url, files={'data': file})
     print("Status Code:", response.status_code)
@@ -11,7 +11,7 @@ def request_prediction(url: str, img_path: str):
     return response.text
 
 
-def draw_bboxes(text_response, img_path: str):
+def draw_bboxes(text_response: str, img_path: str):
     result = json.loads(text_response)
     img = Image.open(img_path)
     color_map = {'Person': (56, 41, 131), 'Car': (196, 166, 44)}
